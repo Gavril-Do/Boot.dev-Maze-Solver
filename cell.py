@@ -2,7 +2,7 @@ from tkinter import Tk, BOTH, Canvas
 from line import Line, Point
 
 class Cell():
-	def __init__(self, win):
+	def __init__(self, win=None):
 		self.has_left = True
 		self.has_right = True
 		self.has_top = True
