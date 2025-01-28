@@ -3,6 +3,7 @@ from line import Line, Point
 
 class Cell():
 	def __init__(self, win=None):
+		self.visited = False
 		self.has_left = True
 		self.has_right = True
 		self.has_top = True
