@@ -3,11 +3,16 @@ from line import Line, Point
 
 class Cell():
 	def __init__(self, win=None):
+		self.coords = None
 		self.visited = False
 		self.has_left = True
 		self.has_right = True
 		self.has_top = True
 		self.has_bottom = True
+		self.north = None
+		self.south = None
+		self.east = None
+		self.west = None
 		self._x1 = None
 		self._x2 = None
 		self._y1 = None
@@ -53,7 +58,7 @@ class Cell():
 		x_center = half_length + self._x1
 		y_center = half_length + self._y1
 
-		half_length2 = abs(to_cell.x2 - to_cell._x1) // 2
+		half_length2 = abs(to_cell._x2 - to_cell._x1) // 2
 		x_center2 = half_length2 + to_cell._x1
 		y_center2 = half_length2 + to_cell._y1
 
@@ -61,14 +66,5 @@ class Cell():
 		if undo:
 			fill_color = "gray"
 
-		line = Line(Point(x_center, y_center), Point((x_center2, y_center2)))
+		line = Line(Point(x_center, y_center), Point(x_center2, y_center2))
 		self._win.draw_line(line, fill_color)
-
-		# line = Line(
-		# 	Point((self._x1 - ((self._x1 - self.x2) / 2)), (self._x1 - ((self._x1 - self.x2) / 2))),
-		# 	Point((to_cell._x1 - ((to_cell._x1 - to_cell.x2) / 2)), (to_cell._x1 - ((to_cell._x1 - to_cell.x2) / 2)))
-		# 	)
-		# if undo == True:
-		# 	line.draw(self._win, "gray")
-		# else:
-		# 	line.draw(self._win)
