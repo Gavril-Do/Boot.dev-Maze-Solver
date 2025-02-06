@@ -1,6 +1,6 @@
 from tkinter import Tk, BOTH, Canvas
 
-class Window(Tk):
+class Window:
 	def __init__(self, width=800, height=600):
 		self.__root = Tk()
 		self.__root.title("Maze Solver")
